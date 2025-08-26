@@ -320,7 +320,31 @@
                     <p class="text-xl text-gray-600">Uji pemahaman Anda dengan 15 soal pilihan ganda</p>
                 </div>
 
-                <div class="bg-white rounded-xl p-8 shadow-lg">
+                <!-- Student Information Form -->
+                <div id="student-form" class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800 text-center">📝 Data Siswa</h3>
+                    <div class="max-w-md mx-auto space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                            <input type="text" id="student-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Masukkan nama lengkap Anda">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Kelas</label>
+                            <select id="student-class" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Pilih Kelas</option>
+                                <option value="XI TJKT 1">XI TJKT 1</option>
+                                <option value="XI TJKT 2">XI TJKT 2</option>
+                                <option value="XI PPLG 1">XI PPLG 1</option>
+                                <option value="XI PPLG 2">XI PPLG 2</option>
+                            </select>
+                        </div>
+                        <button onclick="startQuiz()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-all font-semibold">
+                            Mulai Kuis 🚀
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quiz-container-wrapper" class="bg-white rounded-xl p-8 shadow-lg hidden">
                     <div class="flex justify-between items-center mb-6">
                         <div class="text-lg font-semibold text-gray-700">
                             Soal <span id="current-question">1</span> dari <span id="total-questions">15</span>
@@ -388,6 +412,13 @@
         let score = 0;
         let userAnswers = [];
         let selectedHobby = '';
+        let studentName = '';
+        let studentClass = '';
+        let quizStartTime = null;
+
+        // Google Sheets Configuration
+        // PENTING: Ganti dengan URL Google Apps Script Web App Anda
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwjk0KcFXdfMBTOoZYimxGerv6vXCmOD61hCG-hdW7B9RA829gCQhBaBYazwdT-I-_K/exec';
 
         // Quiz questions (50 questions, 15 will be randomly selected)
         const allQuestions = [
@@ -805,9 +836,11 @@
             
             currentPage = page;
             
-            // Initialize quiz if needed
-            if (page === 'kuis' && quizQuestions.length === 0) {
-                initializeQuiz();
+            // Reset quiz form when navigating to quiz page
+            if (page === 'kuis') {
+                document.getElementById('student-form').classList.remove('hidden');
+                document.getElementById('quiz-container-wrapper').classList.add('hidden');
+                document.getElementById('quiz-result').classList.add('hidden');
             }
         }
 
@@ -919,6 +952,33 @@
         }
 
         // Quiz functions
+        function startQuiz() {
+            const nameInput = document.getElementById('student-name');
+            const classSelect = document.getElementById('student-class');
+            
+            if (!nameInput.value.trim()) {
+                alert('Mohon masukkan nama lengkap Anda!');
+                nameInput.focus();
+                return;
+            }
+            
+            if (!classSelect.value) {
+                alert('Mohon pilih kelas Anda!');
+                classSelect.focus();
+                return;
+            }
+            
+            studentName = nameInput.value.trim();
+            studentClass = classSelect.value;
+            quizStartTime = new Date();
+            
+            // Hide form and show quiz
+            document.getElementById('student-form').classList.add('hidden');
+            document.getElementById('quiz-container-wrapper').classList.remove('hidden');
+            
+            initializeQuiz();
+        }
+
         function initializeQuiz() {
             // Randomly select 15 questions from the pool of 50
             const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
@@ -1005,6 +1065,9 @@
                 }
             });
             
+            // Submit to Google Sheets
+            submitToGoogleSheets();
+            
             // Show results
             document.getElementById('quiz-container').classList.add('hidden');
             document.getElementById('quiz-result').classList.remove('hidden');
@@ -1025,10 +1088,58 @@
             document.getElementById('result-message').textContent = message;
         }
 
+        async function submitToGoogleSheets() {
+            const quizEndTime = new Date();
+            const duration = Math.round((quizEndTime - quizStartTime) / 1000 / 60); // in minutes
+            
+            const data = {
+                timestamp: quizEndTime.toLocaleString('id-ID'),
+                nama: studentName,
+                kelas: studentClass,
+                skor: score,
+                totalSoal: quizQuestions.length,
+                persentase: Math.round((score / quizQuestions.length) * 100),
+                durasi: duration,
+                jawaban: userAnswers.map((answer, index) => ({
+                    soal: index + 1,
+                    pertanyaan: quizQuestions[index].question,
+                    jawabanSiswa: answer !== null ? quizQuestions[index].options[answer] : 'Tidak dijawab',
+                    jawabanBenar: quizQuestions[index].options[quizQuestions[index].correct],
+                    benar: answer === quizQuestions[index].correct
+                }))
+            };
+            
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                console.log('Data berhasil dikirim ke Google Sheets');
+            } catch (error) {
+                console.error('Error mengirim data:', error);
+                // Simpan data lokal sebagai backup
+                localStorage.setItem('quizBackup_' + Date.now(), JSON.stringify(data));
+            }
+        }
+
         function restartQuiz() {
             document.getElementById('quiz-result').classList.add('hidden');
-            document.getElementById('quiz-container').classList.remove('hidden');
-            initializeQuiz();
+            document.getElementById('quiz-container-wrapper').classList.add('hidden');
+            document.getElementById('student-form').classList.remove('hidden');
+            
+            // Reset form
+            document.getElementById('student-name').value = '';
+            document.getElementById('student-class').value = '';
+            
+            // Reset variables
+            studentName = '';
+            studentClass = '';
+            quizStartTime = null;
         }
 
         // Initialize the app
@@ -1036,5 +1147,5 @@
             showPage('materi');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974fbf6354190ddc',t:'MTc1NjE3Mzc1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974fce8f51a65ce7',t:'MTc1NjE3NDM3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
