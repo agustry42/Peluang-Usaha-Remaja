@@ -1099,15 +1099,16 @@
                 return `Soal ${index + 1}: ${isCorrect ? '✓' : '✗'} (${studentAnswer})`;
             }).join(' | ');
             
-            const formData = new FormData();
-            formData.append('timestamp', quizEndTime.toLocaleString('id-ID'));
-            formData.append('nama', studentName);
-            formData.append('kelas', studentClass);
-            formData.append('skor', score);
-            formData.append('totalSoal', quizQuestions.length);
-            formData.append('persentase', Math.round((score / quizQuestions.length) * 100));
-            formData.append('durasi', duration);
-            formData.append('detailJawaban', detailJawaban);
+            // Gunakan URLSearchParams untuk kompatibilitas yang lebih baik
+            const params = new URLSearchParams();
+            params.append('timestamp', quizEndTime.toLocaleString('id-ID'));
+            params.append('nama', studentName);
+            params.append('kelas', studentClass);
+            params.append('skor', score);
+            params.append('totalSoal', quizQuestions.length);
+            params.append('persentase', Math.round((score / quizQuestions.length) * 100));
+            params.append('durasi', duration);
+            params.append('detailJawaban', detailJawaban);
             
             try {
                 // Show loading indicator
@@ -1115,20 +1116,24 @@
                 
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: params.toString()
                 });
                 
-                if (response.ok) {
-                    const result = await response.text();
-                    console.log('Response:', result);
-                    showSuccessMessage('✅ Hasil kuis berhasil disimpan!');
+                const result = await response.text();
+                console.log('Response:', result);
+                
+                if (result.includes('SUCCESS')) {
+                    showSuccessMessage('✅ Hasil kuis berhasil disimpan ke Google Sheets!');
                 } else {
-                    throw new Error('Network response was not ok');
+                    throw new Error('Server response: ' + result);
                 }
                 
             } catch (error) {
                 console.error('Error mengirim data:', error);
-                showErrorMessage('⚠️ Gagal menyimpan ke Google Sheets. Data disimpan lokal sebagai backup.');
+                showErrorMessage('⚠️ Gagal menyimpan ke Google Sheets. Periksa URL dan coba lagi.');
                 
                 // Simpan data lokal sebagai backup
                 const backupData = {
@@ -1142,6 +1147,9 @@
                     detailJawaban: detailJawaban
                 };
                 localStorage.setItem('quizBackup_' + Date.now(), JSON.stringify(backupData));
+                
+                // Tampilkan data untuk debugging
+                console.log('Data yang akan dikirim:', backupData);
             }
         }
         
@@ -1211,5 +1219,5 @@
             showPage('materi');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974ff28c04777a21',t:'MTc1NjE3NTg0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'975002d4819cb593',t:'MTc1NjE3NjUxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
