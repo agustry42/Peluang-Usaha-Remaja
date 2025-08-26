@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Pembelajaran Peluang Usaha untuk Remaja</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .fade-in { animation: fadeIn 0.6s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .quiz-option { transition: all 0.2s ease; }
+        .quiz-option:hover { background-color: #f3f4f6; }
+        .quiz-option.selected { background-color: #3b82f6; color: white; }
+        .quiz-option.correct { background-color: #10b981; color: white; }
+        .quiz-option.incorrect { background-color: #ef4444; color: white; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">💼 Peluang Usaha Remaja</h1>
+            <div class="space-x-4">
+                <button onclick="showPage('materi')" class="px-4 py-2 bg-white bg-opacity-20 rounded-lg hover:bg-opacity-30 transition-all">Materi</button>
+                <button onclick="showPage('studi-kasus')" class="px-4 py-2 bg-white bg-opacity-20 rounded-lg hover:bg-opacity-30 transition-all">Studi Kasus</button>
+                <button onclick="showPage('kuis')" class="px-4 py-2 bg-white bg-opacity-20 rounded-lg hover:bg-opacity-30 transition-all">Kuis</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Halaman 1: Materi -->
+    <div id="materi" class="page-content">
+        <div class="container mx-auto px-4 py-8">
+            <div class="fade-in">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">📚 Peluang Usaha untuk Remaja</h2>
+                    <p class="text-xl text-gray-600">Panduan lengkap memulai bisnis di usia muda</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                        <div class="text-4xl mb-4">🎯</div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Apa itu Peluang Usaha?</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Peluang usaha adalah kesempatan untuk menciptakan atau mengembangkan bisnis yang dapat menghasilkan keuntungan. 
+                            Bagi remaja, ini adalah cara untuk mengembangkan keterampilan, mendapatkan penghasilan tambahan, dan mempersiapkan masa depan.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                        <div class="text-4xl mb-4">⭐</div>
+                        <h3 class="text-2xl font-semibold mb-4 text-gray-800">Mengapa Remaja Harus Mulai Bisnis?</h3>
+                        <ul class="text-gray-600 space-y-2">
+                            <li>• Mengembangkan keterampilan entrepreneurship</li>
+                            <li>• Mendapatkan pengalaman praktis</li>
+                            <li>• Membangun jaringan dan relasi</li>
+                            <li>• Meningkatkan kepercayaan diri</li>
+                            <li>• Mempersiapkan masa depan finansial</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800 flex items-center">
+                        <span class="text-3xl mr-3">💡</span>
+                        Jenis Peluang Usaha untuk Remaja
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-3">🎨 Kreatif & Digital</h4>
+                            <ul class="text-sm text-blue-700 space-y-1">
+                                <li>• Desain grafis</li>
+                                <li>• Content creator</li>
+                                <li>• Fotografi</li>
+                                <li>• Video editing</li>
+                                <li>• Social media management</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-3">🛍️ Jual Beli Online</h4>
+                            <ul class="text-sm text-green-700 space-y-1">
+                                <li>• Dropshipping</li>
+                                <li>• Reseller produk</li>
+                                <li>• Handmade crafts</li>
+                                <li>• Thrifting</li>
+                                <li>• Makanan & minuman</li>
+                            </ul>
+                        </div>
+                        <div class="bg-purple-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-purple-800 mb-3">🎓 Jasa & Skill</h4>
+                            <ul class="text-sm text-purple-700 space-y-1">
+                                <li>• Les privat</li>
+                                <li>• Jasa tulis menulis</li>
+                                <li>• Freelance programming</li>
+                                <li>• Event organizer</li>
+                                <li>• Konsultasi media sosial</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-orange-400 to-pink-400 rounded-xl p-8 text-white mb-8">
+                    <h3 class="text-2xl font-semibold mb-6">🚀 Langkah Memulai Bisnis Remaja</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-3">1. Identifikasi Passion & Skill</h4>
+                            <p class="text-sm opacity-90 mb-4">Mulai dari hobi dan kemampuan yang sudah dimiliki</p>
+                            
+                            <h4 class="font-semibold mb-3">2. Riset Pasar</h4>
+                            <p class="text-sm opacity-90 mb-4">Pelajari target market dan kompetitor</p>
+                            
+                            <h4 class="font-semibold mb-3">3. Mulai Kecil</h4>
+                            <p class="text-sm opacity-90">Tes ide dengan modal minimal</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3">4. Bangun Online Presence</h4>
+                            <p class="text-sm opacity-90 mb-4">Manfaatkan media sosial untuk promosi</p>
+                            
+                            <h4 class="font-semibold mb-3">5. Kelola Keuangan</h4>
+                            <p class="text-sm opacity-90 mb-4">Catat pemasukan dan pengeluaran</p>
+                            
+                            <h4 class="font-semibold mb-3">6. Evaluasi & Kembangkan</h4>
+                            <p class="text-sm opacity-90">Terus belajar dan tingkatkan bisnis</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800 flex items-center">
+                        <span class="text-3xl mr-3">⚡</span>
+                        Tantangan dalam Memulai Usaha
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-red-800 mb-4">🚧 Tantangan Internal</h4>
+                            <ul class="text-red-700 space-y-2 text-sm">
+                                <li>• Keterbatasan modal dan sumber daya</li>
+                                <li>• Kurangnya pengalaman bisnis</li>
+                                <li>• Manajemen waktu antara sekolah dan bisnis</li>
+                                <li>• Rasa takut gagal dan kurang percaya diri</li>
+                                <li>• Kesulitan dalam mengambil keputusan</li>
+                            </ul>
+                        </div>
+                        <div class="bg-orange-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-orange-800 mb-4">🌍 Tantangan Eksternal</h4>
+                            <ul class="text-orange-700 space-y-2 text-sm">
+                                <li>• Persaingan dengan bisnis yang sudah mapan</li>
+                                <li>• Skeptisisme dari orang dewasa</li>
+                                <li>• Regulasi dan perizinan yang kompleks</li>
+                                <li>• Kesulitan mendapat kepercayaan pelanggan</li>
+                                <li>• Akses terbatas ke jaringan bisnis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-green-400 to-blue-500 rounded-xl p-8 text-white mb-8">
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                        <span class="text-3xl mr-3">🎁</span>
+                        Keuntungan Memulai Bisnis di Usia Muda
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white bg-opacity-20 p-6 rounded-lg">
+                            <div class="text-3xl mb-3">🧠</div>
+                            <h4 class="font-semibold mb-3">Pengembangan Diri</h4>
+                            <ul class="text-sm opacity-90 space-y-1">
+                                <li>• Meningkatkan kreativitas</li>
+                                <li>• Mengasah problem solving</li>
+                                <li>• Membangun kepercayaan diri</li>
+                                <li>• Mengembangkan leadership</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-6 rounded-lg">
+                            <div class="text-3xl mb-3">💎</div>
+                            <h4 class="font-semibold mb-3">Keunggulan Kompetitif</h4>
+                            <ul class="text-sm opacity-90 space-y-1">
+                                <li>• Lebih adaptif dengan teknologi</li>
+                                <li>• Memahami trend generasi muda</li>
+                                <li>• Energi dan semangat tinggi</li>
+                                <li>• Berani mengambil risiko</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-6 rounded-lg">
+                            <div class="text-3xl mb-3">🚀</div>
+                            <h4 class="font-semibold mb-3">Masa Depan Cerah</h4>
+                            <ul class="text-sm opacity-90 space-y-1">
+                                <li>• Pengalaman berharga untuk CV</li>
+                                <li>• Mempersiapkan karir entrepreneur</li>
+                                <li>• Membangun jaringan sejak dini</li>
+                                <li>• Kemandirian finansial</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">⚠️ Tips Penting untuk Remaja</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-yellow-100 p-2 rounded-full">
+                                    <span class="text-yellow-600">📚</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Prioritaskan Sekolah</h4>
+                                    <p class="text-sm text-gray-600">Bisnis tidak boleh mengganggu prestasi akademik</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-blue-100 p-2 rounded-full">
+                                    <span class="text-blue-600">👨‍👩‍👧‍👦</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Komunikasi dengan Orang Tua</h4>
+                                    <p class="text-sm text-gray-600">Libatkan orang tua dalam perencanaan bisnis</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-green-100 p-2 rounded-full">
+                                    <span class="text-green-600">💰</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Kelola Uang dengan Bijak</h4>
+                                    <p class="text-sm text-gray-600">Sisihkan sebagian keuntungan untuk tabungan</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="bg-purple-100 p-2 rounded-full">
+                                    <span class="text-purple-600">🤝</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Bangun Network</h4>
+                                    <p class="text-sm text-gray-600">Jalin hubungan baik dengan pelanggan dan mitra</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Halaman 2: Studi Kasus -->
+    <div id="studi-kasus" class="page-content hidden">
+        <div class="container mx-auto px-4 py-8">
+            <div class="fade-in">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">🎯 Studi Kasus Interaktif</h2>
+                    <p class="text-xl text-gray-600">Simulasi mengubah hobi menjadi peluang bisnis</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Pilih Hobi yang Ingin Dikembangkan:</h3>
+                    <div class="grid md:grid-cols-3 gap-4 mb-8">
+                        <button onclick="selectHobby('video')" class="hobby-btn p-6 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all">
+                            <div class="text-4xl mb-3">🎬</div>
+                            <h4 class="font-semibold">Content Creator</h4>
+                            <p class="text-sm text-gray-600">Membuat video YouTube/TikTok</p>
+                        </button>
+                        <button onclick="selectHobby('online')" class="hobby-btn p-6 border-2 border-gray-200 rounded-lg hover:border-green-500 hover:bg-green-50 transition-all">
+                            <div class="text-4xl mb-3">🛒</div>
+                            <h4 class="font-semibold">Online Shop</h4>
+                            <p class="text-sm text-gray-600">Jual beli produk online</p>
+                        </button>
+                        <button onclick="selectHobby('design')" class="hobby-btn p-6 border-2 border-gray-200 rounded-lg hover:border-purple-500 hover:bg-purple-50 transition-all">
+                            <div class="text-4xl mb-3">🎨</div>
+                            <h4 class="font-semibold">Desain Grafis</h4>
+                            <p class="text-sm text-gray-600">Membuat desain digital</p>
+                        </button>
+                        <button onclick="selectHobby('photo')" class="hobby-btn p-6 border-2 border-gray-200 rounded-lg hover:border-yellow-500 hover:bg-yellow-50 transition-all">
+                            <div class="text-4xl mb-3">📸</div>
+                            <h4 class="font-semibold">Fotografi</h4>
+                            <p class="text-sm text-gray-600">Mengambil foto profesional</p>
+                        </button>
+                        <button onclick="selectHobby('cooking')" class="hobby-btn p-6 border-2 border-gray-200 rounded-lg hover:border-red-500 hover:bg-red-50 transition-all">
+                            <div class="text-4xl mb-3">👨‍🍳</div>
+                            <h4 class="font-semibold">Memasak</h4>
+                            <p class="text-sm text-gray-600">Membuat makanan & minuman</p>
+                        </button>
+                        <button onclick="selectHobby('tutor')" class="hobby-btn p-6 border-2 border-gray-200 rounded-lg hover:border-indigo-500 hover:bg-indigo-50 transition-all">
+                            <div class="text-4xl mb-3">📚</div>
+                            <h4 class="font-semibold">Mengajar</h4>
+                            <p class="text-sm text-gray-600">Les privat & bimbingan</p>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="case-study-content" class="hidden">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+
+                <div id="business-plan" class="hidden bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-8 text-white">
+                    <h3 class="text-2xl font-semibold mb-6">📋 Rencana Bisnis Anda</h3>
+                    <div id="plan-content" class="grid md:grid-cols-2 gap-6">
+                        <!-- Content will be populated by JavaScript -->
+                    </div>
+                    <div class="mt-6 text-center">
+                        <button onclick="resetCase()" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">
+                            Coba Hobi Lain
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Halaman 3: Kuis -->
+    <div id="kuis" class="page-content hidden">
+        <div class="container mx-auto px-4 py-8">
+            <div class="fade-in">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">🧠 Kuis Peluang Usaha</h2>
+                    <p class="text-xl text-gray-600">Uji pemahaman Anda dengan 15 soal pilihan ganda</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="text-lg font-semibold text-gray-700">
+                            Soal <span id="current-question">1</span> dari <span id="total-questions">15</span>
+                        </div>
+                        <div class="text-lg font-semibold text-blue-600">
+                            Skor: <span id="score">0</span>
+                        </div>
+                    </div>
+
+                    <div class="w-full bg-gray-200 rounded-full h-3 mb-8">
+                        <div id="progress-bar" class="bg-blue-600 h-3 rounded-full transition-all duration-300" style="width: 6.67%"></div>
+                    </div>
+
+                    <div id="quiz-container">
+                        <div id="question-text" class="text-xl font-semibold text-gray-800 mb-6"></div>
+                        <div id="options-container" class="space-y-3 mb-8"></div>
+                        <div class="flex justify-between">
+                            <button id="prev-btn" onclick="previousQuestion()" class="px-6 py-3 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-all disabled:opacity-50" disabled>
+                                ← Sebelumnya
+                            </button>
+                            <button id="next-btn" onclick="nextQuestion()" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all disabled:opacity-50" disabled>
+                                Selanjutnya →
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="quiz-result" class="hidden text-center">
+                        <div class="text-6xl mb-4">🎉</div>
+                        <h3 class="text-3xl font-bold text-gray-800 mb-4">Kuis Selesai!</h3>
+                        <div class="text-2xl font-semibold text-blue-600 mb-6">
+                            Skor Akhir: <span id="final-score"></span>/15
+                        </div>
+                        <div id="result-message" class="text-lg text-gray-600 mb-8"></div>
+                        <button onclick="restartQuiz()" class="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-semibold">
+                            Ulangi Kuis
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold mb-2">Program Pembelajaran Peluang Usaha</h3>
+                <p class="opacity-90">Mempersiapkan generasi entrepreneur masa depan</p>
+            </div>
+            <div class="border-t border-white border-opacity-20 pt-4">
+                <p class="text-sm opacity-75">
+                    © 2025 SMKS PK PASIM Plus Kota Sukabumi
+                </p>
+                <p class="text-xs opacity-60 mt-1">
+                    Dikembangkan untuk mendukung pembelajaran kewirausahaan siswa
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let currentPage = 'materi';
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+        let selectedHobby = '';
+
+        // Quiz questions (50 questions, 15 will be randomly selected)
+        const allQuestions = [
+            {
+                question: "Apa yang dimaksud dengan peluang usaha?",
+                options: ["Kesempatan untuk bekerja di perusahaan", "Kesempatan untuk menciptakan bisnis yang menguntungkan", "Kesempatan untuk mendapat beasiswa", "Kesempatan untuk berlibur"],
+                correct: 1
+            },
+            {
+                question: "Mengapa remaja sebaiknya mulai belajar berbisnis sejak dini?",
+                options: ["Untuk mendapat uang jajan", "Untuk mengembangkan keterampilan entrepreneurship", "Untuk menghindari sekolah", "Untuk terlihat keren"],
+                correct: 1
+            },
+            {
+                question: "Apa langkah pertama dalam memulai bisnis remaja?",
+                options: ["Mencari modal besar", "Identifikasi passion dan skill", "Berhenti sekolah", "Menyewa kantor"],
+                correct: 1
+            },
+            {
+                question: "Platform media sosial mana yang paling efektif untuk promosi bisnis remaja?",
+                options: ["Hanya Facebook", "Hanya Instagram", "Kombinasi berbagai platform sesuai target market", "Tidak perlu media sosial"],
+                correct: 2
+            },
+            {
+                question: "Apa itu dropshipping?",
+                options: ["Menjual produk tanpa menyimpan stok", "Membuat produk sendiri", "Menjual produk bekas", "Menjual produk mahal"],
+                correct: 0
+            },
+            {
+                question: "Berapa modal minimum yang dibutuhkan untuk memulai bisnis online?",
+                options: ["Rp 10 juta", "Rp 1 juta", "Bisa dimulai dengan modal sangat kecil bahkan tanpa modal", "Rp 100 juta"],
+                correct: 2
+            },
+            {
+                question: "Apa yang harus diprioritaskan remaja saat berbisnis?",
+                options: ["Keuntungan maksimal", "Prestasi sekolah tetap terjaga", "Popularitas", "Kompetisi dengan teman"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara menentukan harga produk yang tepat?",
+                options: ["Sesuka hati", "Riset harga kompetitor dan hitung biaya produksi", "Ikut harga teman", "Harga paling murah"],
+                correct: 1
+            },
+            {
+                question: "Apa itu target market?",
+                options: ["Semua orang", "Kelompok spesifik yang menjadi sasaran produk", "Hanya keluarga", "Hanya teman sekolah"],
+                correct: 1
+            },
+            {
+                question: "Mengapa penting membuat business plan?",
+                options: ["Untuk memamerkan ke teman", "Untuk merencanakan strategi dan mengukur progress", "Tidak penting", "Hanya formalitas"],
+                correct: 1
+            },
+            {
+                question: "Apa keuntungan menjadi content creator?",
+                options: ["Hanya untuk hiburan", "Bisa monetisasi kreativitas dan membangun personal brand", "Tidak ada keuntungan", "Hanya buang waktu"],
+                correct: 1
+            },
+            {
+                question: "Platform mana yang cocok untuk menjual produk handmade?",
+                options: ["Hanya toko offline", "Instagram, Shopee, Tokopedia", "Tidak bisa dijual online", "Hanya WhatsApp"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara membangun kepercayaan pelanggan online?",
+                options: ["Harga murah saja", "Testimoni, kualitas produk, dan pelayanan baik", "Promosi berlebihan", "Tidak perlu kepercayaan"],
+                correct: 1
+            },
+            {
+                question: "Apa itu passive income?",
+                options: ["Penghasilan dari bekerja aktif", "Penghasilan yang diperoleh tanpa bekerja aktif terus menerus", "Penghasilan dari orang tua", "Penghasilan ilegal"],
+                correct: 1
+            },
+            {
+                question: "Skill apa yang paling penting untuk entrepreneur muda?",
+                options: ["Hanya skill teknis", "Komunikasi, kreativitas, dan problem solving", "Hanya skill akademis", "Tidak perlu skill khusus"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara mengatasi kompetitor dalam bisnis?",
+                options: ["Menjatuhkan kompetitor", "Fokus pada keunggulan dan inovasi produk sendiri", "Meniru persis kompetitor", "Menyerah"],
+                correct: 1
+            },
+            {
+                question: "Apa itu branding dalam bisnis?",
+                options: ["Hanya logo", "Identitas dan persepsi keseluruhan tentang bisnis", "Hanya nama", "Tidak penting"],
+                correct: 1
+            },
+            {
+                question: "Mengapa penting mencatat keuangan bisnis?",
+                options: ["Tidak penting", "Untuk mengontrol cash flow dan mengukur keuntungan", "Hanya formalitas", "Untuk pajak saja"],
+                correct: 1
+            },
+            {
+                question: "Apa yang dimaksud dengan customer service?",
+                options: ["Hanya menjual produk", "Pelayanan dan dukungan kepada pelanggan", "Hanya terima komplain", "Tidak perlu dilakukan"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara efektif melakukan riset pasar?",
+                options: ["Tanya teman saja", "Survey, observasi kompetitor, dan analisis trend", "Tidak perlu riset", "Ikut feeling"],
+                correct: 1
+            },
+            {
+                question: "Apa keuntungan berbisnis jasa dibanding produk?",
+                options: ["Tidak ada keuntungan", "Modal lebih kecil dan tidak perlu stok", "Lebih sulit", "Keuntungan lebih kecil"],
+                correct: 1
+            },
+            {
+                question: "Platform mana yang cocok untuk freelancer muda?",
+                options: ["Hanya offline", "Fiverr, Upwork, Projects.co.id", "Tidak ada platform", "Hanya WhatsApp"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara membangun network bisnis?",
+                options: ["Tidak perlu network", "Aktif di komunitas, event, dan media sosial", "Hanya keluarga", "Menunggu orang datang"],
+                correct: 1
+            },
+            {
+                question: "Apa itu MVP (Minimum Viable Product)?",
+                options: ["Produk paling mahal", "Versi sederhana produk untuk test pasar", "Produk gagal", "Produk tiruan"],
+                correct: 1
+            },
+            {
+                question: "Mengapa penting memahami digital marketing?",
+                options: ["Tidak penting", "Untuk menjangkau lebih banyak customer dengan efisien", "Hanya trend", "Terlalu rumit"],
+                correct: 1
+            },
+            {
+                question: "Apa yang harus dilakukan saat bisnis mengalami kerugian?",
+                options: ["Langsung tutup", "Evaluasi, cari solusi, dan perbaiki strategi", "Menyalahkan orang lain", "Menambah modal terus"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara menentukan USP (Unique Selling Point)?",
+                options: ["Ikut kompetitor", "Identifikasi keunggulan unik yang membedakan dari kompetitor", "Tidak perlu USP", "Harga termurah"],
+                correct: 1
+            },
+            {
+                question: "Apa manfaat membuat konten edukatif untuk bisnis?",
+                options: ["Buang waktu", "Membangun authority dan menarik pelanggan", "Tidak ada manfaat", "Hanya untuk pamer"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara mengelola waktu antara sekolah dan bisnis?",
+                options: ["Pilih salah satu", "Buat jadwal dan prioritas yang jelas", "Abaikan sekolah", "Abaikan bisnis"],
+                correct: 1
+            },
+            {
+                question: "Apa itu affiliate marketing?",
+                options: ["Menjual produk sendiri", "Mempromosikan produk orang lain dan dapat komisi", "Membeli produk murah", "Tidak ada hubungan dengan marketing"],
+                correct: 1
+            },
+            {
+                question: "Mengapa penting membangun email list?",
+                options: ["Tidak penting", "Untuk komunikasi langsung dan marketing yang efektif", "Hanya spam", "Terlalu kuno"],
+                correct: 1
+            },
+            {
+                question: "Apa yang dimaksud dengan customer retention?",
+                options: ["Mencari pelanggan baru", "Mempertahankan pelanggan yang sudah ada", "Mengusir pelanggan", "Tidak ada hubungan dengan pelanggan"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara mengukur kesuksesan bisnis remaja?",
+                options: ["Hanya dari keuntungan", "Kombinasi profit, customer satisfaction, dan personal growth", "Hanya dari popularitas", "Tidak perlu diukur"],
+                correct: 1
+            },
+            {
+                question: "Apa itu e-commerce?",
+                options: ["Toko offline", "Perdagangan elektronik melalui internet", "Hanya email", "Tidak ada hubungan dengan bisnis"],
+                correct: 1
+            },
+            {
+                question: "Mengapa penting memahami SEO untuk bisnis online?",
+                options: ["Tidak penting", "Untuk meningkatkan visibility di search engine", "Hanya untuk programmer", "Terlalu teknis"],
+                correct: 1
+            },
+            {
+                question: "Apa yang harus diperhatikan saat membuat konten media sosial?",
+                options: ["Asal posting", "Kualitas, konsistensi, dan relevansi dengan audience", "Hanya foto bagus", "Posting sebanyak mungkin"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara menangani komplain pelanggan?",
+                options: ["Diabaikan", "Dengarkan, pahami, dan berikan solusi terbaik", "Marah balik", "Blokir pelanggan"],
+                correct: 1
+            },
+            {
+                question: "Apa itu market research?",
+                options: ["Membeli produk", "Penelitian untuk memahami pasar dan konsumen", "Menjual produk", "Tidak ada hubungan dengan bisnis"],
+                correct: 1
+            },
+            {
+                question: "Mengapa penting memiliki mentor dalam bisnis?",
+                options: ["Tidak perlu mentor", "Untuk belajar dari pengalaman dan menghindari kesalahan", "Hanya formalitas", "Membuat ketergantungan"],
+                correct: 1
+            },
+            {
+                question: "Apa yang dimaksud dengan scalability dalam bisnis?",
+                options: ["Membuat produk kecil", "Kemampuan bisnis untuk berkembang dan tumbuh", "Mengurangi bisnis", "Tidak ada hubungan dengan pertumbuhan"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara membangun brand awareness?",
+                options: ["Tidak perlu brand awareness", "Konsistensi konten, engagement, dan kualitas produk", "Hanya iklan mahal", "Meniru brand lain"],
+                correct: 1
+            },
+            {
+                question: "Apa manfaat bergabung dengan komunitas entrepreneur muda?",
+                options: ["Tidak ada manfaat", "Sharing knowledge, networking, dan motivasi", "Hanya buang waktu", "Menambah kompetitor"],
+                correct: 1
+            },
+            {
+                question: "Mengapa penting memahami customer journey?",
+                options: ["Tidak penting", "Untuk memberikan experience terbaik di setiap tahap", "Hanya teori", "Terlalu rumit"],
+                correct: 1
+            },
+            {
+                question: "Apa yang harus dilakukan untuk sustainable business?",
+                options: ["Fokus profit jangka pendek", "Membangun sistem yang berkelanjutan dan adaptif", "Tidak perlu sustainability", "Ikut trend saja"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara mengoptimalkan conversion rate?",
+                options: ["Tidak perlu optimasi", "Improve user experience dan call-to-action yang jelas", "Hanya turunkan harga", "Tambah produk"],
+                correct: 1
+            },
+            {
+                question: "Apa pentingnya memahami cash flow dalam bisnis?",
+                options: ["Tidak penting", "Untuk memastikan bisnis memiliki likuiditas yang sehat", "Hanya untuk akuntansi", "Terlalu rumit untuk remaja"],
+                correct: 1
+            },
+            {
+                question: "Mengapa diversifikasi produk/jasa penting untuk bisnis remaja?",
+                options: ["Tidak perlu diversifikasi", "Untuk mengurangi risiko dan meningkatkan peluang", "Membuat bingung", "Terlalu rumit"],
+                correct: 1
+            },
+            {
+                question: "Apa yang dimaksud dengan customer lifetime value?",
+                options: ["Umur pelanggan", "Total nilai yang diberikan pelanggan selama hubungan bisnis", "Harga produk", "Tidak ada hubungan dengan pelanggan"],
+                correct: 1
+            },
+            {
+                question: "Bagaimana cara membangun competitive advantage?",
+                options: ["Meniru kompetitor", "Mengembangkan keunggulan unik yang sulit ditiru", "Harga termurah", "Tidak perlu keunggulan"],
+                correct: 1
+            },
+            {
+                question: "Apa manfaat menggunakan analytics dalam bisnis digital?",
+                options: ["Tidak ada manfaat", "Untuk mengukur performa dan membuat keputusan berbasis data", "Hanya angka-angka", "Terlalu teknis"],
+                correct: 1
+            }
+        ];
+
+        let quizQuestions = [];
+
+        // Hobby case studies
+        const hobbyCases = {
+            video: {
+                title: "Content Creator - Video YouTube/TikTok",
+                icon: "🎬",
+                scenario: "Kamu suka membuat video kreatif dan sudah punya beberapa video di TikTok dengan engagement yang lumayan. Kamu ingin mengembangkannya menjadi sumber penghasilan.",
+                challenges: [
+                    "Konsistensi konten",
+                    "Membangun audience yang loyal", 
+                    "Monetisasi yang efektif",
+                    "Manajemen waktu dengan sekolah"
+                ],
+                solutions: [
+                    "Buat content calendar dan batch recording",
+                    "Fokus pada niche tertentu (gaming, edukasi, lifestyle)",
+                    "Diversifikasi income: ads, sponsorship, affiliate, merchandise",
+                    "Jadwalkan waktu khusus untuk konten creation"
+                ],
+                businessPlan: {
+                    modal: "Rp 500.000 - 2.000.000 (equipment upgrade)",
+                    target: "Remaja 13-25 tahun dengan minat serupa",
+                    revenue: "YouTube ads, brand sponsorship, affiliate marketing",
+                    timeline: "3-6 bulan untuk monetisasi pertama"
+                }
+            },
+            online: {
+                title: "Online Shop - E-commerce",
+                icon: "🛒",
+                scenario: "Kamu tertarik dengan fashion dan sering belanja online. Kamu ingin memulai bisnis jual beli produk fashion untuk remaja.",
+                challenges: [
+                    "Mencari supplier terpercaya",
+                    "Kompetisi yang ketat",
+                    "Manajemen stok dan pengiriman",
+                    "Membangun kepercayaan pelanggan"
+                ],
+                solutions: [
+                    "Mulai dengan dropshipping untuk test market",
+                    "Fokus pada niche spesifik (hijab, streetwear, accessories)",
+                    "Gunakan sistem pre-order untuk mengurangi risiko",
+                    "Build trust dengan testimoni dan after-sales service"
+                ],
+                businessPlan: {
+                    modal: "Rp 1.000.000 - 5.000.000 (stok awal)",
+                    target: "Remaja 15-22 tahun, fashion enthusiast",
+                    revenue: "Margin 30-50% per produk",
+                    timeline: "1-2 bulan untuk setup dan penjualan pertama"
+                }
+            },
+            design: {
+                title: "Desain Grafis - Creative Services",
+                icon: "🎨",
+                scenario: "Kamu jago menggunakan Photoshop dan Canva, sering diminta teman untuk buatkan poster atau logo. Kamu ingin menjadikannya bisnis jasa.",
+                challenges: [
+                    "Menentukan harga yang tepat",
+                    "Mencari klien secara konsisten",
+                    "Mengelola revisi dan deadline",
+                    "Upgrade skill dan tools"
+                ],
+                solutions: [
+                    "Riset harga market dan buat paket layanan",
+                    "Aktif di platform freelance dan social media",
+                    "Buat kontrak kerja yang jelas",
+                    "Investasi dalam course online dan software"
+                ],
+                businessPlan: {
+                    modal: "Rp 500.000 - 1.500.000 (software dan course)",
+                    target: "UMKM, event organizer, content creator",
+                    revenue: "Rp 50.000 - 500.000 per project",
+                    timeline: "Immediate - bisa mulai dengan skill existing"
+                }
+            },
+            photo: {
+                title: "Fotografi - Visual Services",
+                icon: "📸",
+                scenario: "Kamu punya kamera dan suka fotografi, sering foto acara sekolah dan dapat pujian. Kamu ingin mengembangkannya menjadi jasa fotografi.",
+                challenges: [
+                    "Investasi equipment yang mahal",
+                    "Kompetisi dengan fotografer profesional",
+                    "Membangun portfolio yang kuat",
+                    "Networking dengan potential clients"
+                ],
+                solutions: [
+                    "Mulai dengan equipment existing, upgrade bertahap",
+                    "Fokus pada niche remaja: graduation, sweet seventeen, prewedding",
+                    "Kolaborasi dengan teman untuk build portfolio",
+                    "Aktif di komunitas dan social media"
+                ],
+                businessPlan: {
+                    modal: "Rp 2.000.000 - 10.000.000 (equipment)",
+                    target: "Remaja, keluarga muda, small events",
+                    revenue: "Rp 200.000 - 2.000.000 per session",
+                    timeline: "2-3 bulan untuk build portfolio dan client base"
+                }
+            },
+            cooking: {
+                title: "Kuliner - Food Business",
+                icon: "👨‍🍳",
+                scenario: "Kamu suka masak dan sering bikin cemilan untuk keluarga. Teman-teman sering request dibuatkan juga. Kamu ingin mulai bisnis makanan.",
+                challenges: [
+                    "Perizinan dan regulasi makanan",
+                    "Konsistensi rasa dan kualitas",
+                    "Packaging dan delivery",
+                    "Manajemen bahan baku"
+                ],
+                solutions: [
+                    "Mulai skala kecil dari rumah dengan menu signature",
+                    "Standardisasi resep dan proses produksi",
+                    "Investasi packaging menarik dan food-safe",
+                    "Kerjasama dengan supplier lokal"
+                ],
+                businessPlan: {
+                    modal: "Rp 1.000.000 - 3.000.000 (peralatan dan bahan)",
+                    target: "Teman sekolah, tetangga, office workers",
+                    revenue: "Margin 40-60% per produk",
+                    timeline: "1 bulan untuk setup dan soft launching"
+                }
+            },
+            tutor: {
+                title: "Les Privat - Educational Services",
+                icon: "📚",
+                scenario: "Kamu punya nilai bagus di beberapa mata pelajaran dan sering membantu teman belajar. Kamu ingin mulai les privat untuk adik kelas.",
+                challenges: [
+                    "Membangun kredibilitas sebagai tutor muda",
+                    "Menyesuaikan metode mengajar",
+                    "Manajemen jadwal dengan sekolah",
+                    "Kompetisi dengan bimbel established"
+                ],
+                solutions: [
+                    "Mulai dengan teman dan referral word-of-mouth",
+                    "Develop teaching method yang fun dan relatable",
+                    "Buat jadwal fleksibel weekend dan after school",
+                    "Fokus pada personal approach dan harga kompetitif"
+                ],
+                businessPlan: {
+                    modal: "Rp 200.000 - 500.000 (materi dan transportasi)",
+                    target: "Siswa SD-SMP, persiapan ujian",
+                    revenue: "Rp 30.000 - 100.000 per jam",
+                    timeline: "Immediate - bisa mulai dengan referral"
+                }
+            }
+        };
+
+        // Page navigation
+        function showPage(page) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            
+            // Show selected page
+            document.getElementById(page).classList.remove('hidden');
+            
+            // Update navigation
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('bg-white', 'bg-opacity-30');
+                btn.classList.add('bg-white', 'bg-opacity-20');
+            });
+            event.target.classList.remove('bg-opacity-20');
+            event.target.classList.add('bg-opacity-30');
+            
+            currentPage = page;
+            
+            // Initialize quiz if needed
+            if (page === 'kuis' && quizQuestions.length === 0) {
+                initializeQuiz();
+            }
+        }
+
+        // Hobby selection for case study
+        function selectHobby(hobby) {
+            selectedHobby = hobby;
+            const caseData = hobbyCases[hobby];
+            
+            // Update button states
+            document.querySelectorAll('.hobby-btn').forEach(btn => {
+                btn.classList.remove('border-blue-500', 'bg-blue-50', 'border-green-500', 'bg-green-50', 
+                                   'border-purple-500', 'bg-purple-50', 'border-yellow-500', 'bg-yellow-50',
+                                   'border-red-500', 'bg-red-50', 'border-indigo-500', 'bg-indigo-50');
+                btn.classList.add('border-gray-200');
+            });
+            
+            event.target.classList.remove('border-gray-200');
+            event.target.classList.add('border-blue-500', 'bg-blue-50');
+            
+            // Show case study content
+            const content = document.getElementById('case-study-content');
+            content.innerHTML = `
+                <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                    <div class="flex items-center mb-6">
+                        <div class="text-4xl mr-4">${caseData.icon}</div>
+                        <h3 class="text-2xl font-semibold text-gray-800">${caseData.title}</h3>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg mb-6">
+                        <h4 class="font-semibold text-blue-800 mb-3">📖 Skenario:</h4>
+                        <p class="text-blue-700">${caseData.scenario}</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-red-800 mb-4">⚠️ Tantangan yang Dihadapi:</h4>
+                            <ul class="text-red-700 space-y-2">
+                                ${caseData.challenges.map(challenge => `<li>• ${challenge}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-4">💡 Solusi yang Bisa Diterapkan:</h4>
+                            <ul class="text-green-700 space-y-2">
+                                ${caseData.solutions.map(solution => `<li>• ${solution}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button onclick="showBusinessPlan()" class="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-semibold">
+                            Lihat Rencana Bisnis 📋
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            content.classList.remove('hidden');
+        }
+
+        function showBusinessPlan() {
+            const caseData = hobbyCases[selectedHobby];
+            const planContent = document.getElementById('plan-content');
+            
+            planContent.innerHTML = `
+                <div>
+                    <h4 class="font-semibold mb-4 flex items-center">
+                        <span class="text-2xl mr-2">💰</span>
+                        Modal Awal
+                    </h4>
+                    <p class="text-lg opacity-90 mb-6">${caseData.businessPlan.modal}</p>
+                    
+                    <h4 class="font-semibold mb-4 flex items-center">
+                        <span class="text-2xl mr-2">🎯</span>
+                        Target Market
+                    </h4>
+                    <p class="text-lg opacity-90">${caseData.businessPlan.target}</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 flex items-center">
+                        <span class="text-2xl mr-2">📈</span>
+                        Sumber Pendapatan
+                    </h4>
+                    <p class="text-lg opacity-90 mb-6">${caseData.businessPlan.revenue}</p>
+                    
+                    <h4 class="font-semibold mb-4 flex items-center">
+                        <span class="text-2xl mr-2">⏰</span>
+                        Timeline
+                    </h4>
+                    <p class="text-lg opacity-90">${caseData.businessPlan.timeline}</p>
+                </div>
+            `;
+            
+            document.getElementById('business-plan').classList.remove('hidden');
+            document.getElementById('case-study-content').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetCase() {
+            document.getElementById('case-study-content').classList.add('hidden');
+            document.getElementById('business-plan').classList.add('hidden');
+            
+            document.querySelectorAll('.hobby-btn').forEach(btn => {
+                btn.classList.remove('border-blue-500', 'bg-blue-50');
+                btn.classList.add('border-gray-200');
+            });
+            
+            selectedHobby = '';
+        }
+
+        // Quiz functions
+        function initializeQuiz() {
+            // Randomly select 15 questions from the pool of 50
+            const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+            quizQuestions = shuffled.slice(0, 15);
+            
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = new Array(15).fill(null);
+            
+            updateQuizDisplay();
+        }
+
+        function updateQuizDisplay() {
+            const question = quizQuestions[currentQuestionIndex];
+            
+            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+            document.getElementById('total-questions').textContent = quizQuestions.length;
+            document.getElementById('score').textContent = score;
+            document.getElementById('question-text').textContent = question.question;
+            
+            // Update progress bar
+            const progress = ((currentQuestionIndex + 1) / quizQuestions.length) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            
+            // Create options
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option p-4 border-2 border-gray-200 rounded-lg cursor-pointer';
+                optionDiv.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+                optionDiv.onclick = () => selectOption(index);
+                
+                if (userAnswers[currentQuestionIndex] === index) {
+                    optionDiv.classList.add('selected');
+                }
+                
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
+            document.getElementById('next-btn').disabled = userAnswers[currentQuestionIndex] === null;
+        }
+
+        function selectOption(optionIndex) {
+            userAnswers[currentQuestionIndex] = optionIndex;
+            
+            // Update visual selection
+            document.querySelectorAll('.quiz-option').forEach((option, index) => {
+                option.classList.remove('selected');
+                if (index === optionIndex) {
+                    option.classList.add('selected');
+                }
+            });
+            
+            // Enable next button
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                currentQuestionIndex++;
+                updateQuizDisplay();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                updateQuizDisplay();
+            }
+        }
+
+        function finishQuiz() {
+            // Calculate final score
+            score = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === quizQuestions[index].correct) {
+                    score++;
+                }
+            });
+            
+            // Show results
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('final-score').textContent = score;
+            
+            // Result message based on score
+            let message = '';
+            if (score >= 13) {
+                message = '🌟 Luar biasa! Anda memiliki pemahaman yang sangat baik tentang peluang usaha!';
+            } else if (score >= 10) {
+                message = '👍 Bagus! Anda sudah memahami konsep dasar peluang usaha dengan baik.';
+            } else if (score >= 7) {
+                message = '📚 Cukup baik! Masih ada beberapa konsep yang perlu dipelajari lebih dalam.';
+            } else {
+                message = '💪 Tetap semangat! Pelajari kembali materi dan coba lagi untuk hasil yang lebih baik.';
+            }
+            
+            document.getElementById('result-message').textContent = message;
+        }
+
+        function restartQuiz() {
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            initializeQuiz();
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('materi');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974fbf6354190ddc',t:'MTc1NjE3Mzc1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
